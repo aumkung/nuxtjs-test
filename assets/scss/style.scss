@@ -1,3 +1,5 @@
+@import "~bootstrap/scss/bootstrap-grid.scss";
+
 html {
     font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
       Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -24,11 +26,10 @@ html {
     color: #3b8070;
     text-decoration: none;
     padding: 10px 30px;
-  }
-  
-  .button--green:hover {
-    color: #fff;
-    background-color: #3b8070;
+    &:hover {
+      color: #fff;
+      background-color: #3b8070;
+    }
   }
   
   .button--grey {
@@ -39,9 +40,39 @@ html {
     text-decoration: none;
     padding: 10px 30px;
     margin-left: 15px;
+    &:hover {
+      color: #fff;
+      background-color: #35495e;
+    }
   }
   
-  .button--grey:hover {
-    color: #fff;
-    background-color: #35495e;
+  // .container {
+  //   margin: 0 auto;
+  //   min-height: 100vh;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   text-align: center;
+  // }
+  
+  .title {
+    font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+      'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    display: block;
+    font-weight: 300;
+    font-size: 100px;
+    color: #35495e;
+    letter-spacing: 1px;
+  }
+  
+  .subtitle {
+    font-weight: 300;
+    font-size: 42px;
+    color: #526488;
+    word-spacing: 5px;
+    padding-bottom: 15px;
+  }
+  
+  .links {
+    padding-top: 15px;
   }

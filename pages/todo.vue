@@ -7,7 +7,7 @@
         </div>
       </div>
     </div>
-    <div class="row pt-2">
+    <div v-if="lists != null" class="row pt-2">
       <div class="col-3">
         <ul class="nav-left">
           <li v-for="(list, index) in lists" :key="index" class="nav-left-list">
@@ -25,6 +25,18 @@
           </li>
         </ol>
         <div v-if="districts === null" class="nodata">
+          <img
+            class="nodata-image"
+            src="~assets/images/nodata.svg"
+            alt="no data"
+          />
+          <p class="nodata-text">เสียดายจังเราไม่มีข้อมูลอ่ะ !!</p>
+        </div>
+      </div>
+    </div>
+    <div v-if="lists === null" class="row pt-2">
+      <div class="col-12">
+        <div class="nodata">
           <img
             class="nodata-image"
             src="~assets/images/nodata.svg"

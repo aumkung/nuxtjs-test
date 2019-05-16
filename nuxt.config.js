@@ -51,6 +51,14 @@ export default {
     https: true
   },
 
+  generate: {
+    routes: [
+      '/todo',
+      '/user/aum',
+      '/'
+    ]
+  },
+
   /*
    ** Build configuration
    */

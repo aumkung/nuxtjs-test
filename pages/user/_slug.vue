@@ -3,9 +3,7 @@
     <div class="row">
       <div class="col-12 text-center">
         <h1 class="title">Hello {{ slug }}</h1>
-        <nuxt-link :to="{ name: 'index' }" class="button--green"
-          >Back to Home</nuxt-link
-        >
+        <img src="~assets/images/fuji.jpg" alt="Fuji" />
       </div>
     </div>
   </section>
@@ -13,6 +11,7 @@
 
 <script>
 export default {
+  layout: 'blog',
   computed: {
     slug() {
       return this.$route.params.slug
@@ -20,3 +19,8 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.title {
+  margin-bottom: 3rem;
+}
+</style>

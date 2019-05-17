@@ -1,6 +1,7 @@
 export const state = () => ({
   lists: [],
-  districts: []
+  districts: [],
+  district_detail: false
 })
 
 export const actions = {
@@ -20,7 +21,7 @@ export const actions = {
       })
   },
   async getDistrict({ commit }, key) {
-    await this.$axios
+    const data = await this.$axios
       .$get('/v2/cities', {
         params: {
           key: 'K5CKz6iH2PCPgy98q',
@@ -28,33 +29,32 @@ export const actions = {
           state: `${key}`
         }
       })
-      .then(res => {
-        if (res.status === 'success') {
-          commit('SET_DISTRICT', res)
-        }
-      })
-      .catch(err => {
+      .catch(error => {
         commit('SET_DISTRICT', null)
       })
+    if (data) {
+      commit('SET_DISTRICT', {
+        data: data.data,
+        key: key
+      })
+    }
   },
-  districtDetail({ commit }, key) {
-    console.log(key)
-    // this.$axios
-    //   .$get('https://api.airvisual.com/v2/city', {
-    //     params: {
-    //       key: 'K5CKz6iH2PCPgy98q',
-    //       country: 'Thailand',
-    //       state: `${key}`
-    //     }
-    //   })
-    //   .then(res => {
-    //     commit('SET_DISTRICT', res.data)
-    //   })
-    //   .catch(err => {
-    //     if (err.response.status === 400) {
-    //       alert('ไม่มีค่า')
-    //     }
-    //   })
+  async districtDetail({ commit }, payload) {
+    const data = await this.$axios
+      .$get('/v2/city', {
+        params: {
+          key: 'K5CKz6iH2PCPgy98q',
+          country: 'Thailand',
+          state: `${payload.key}`,
+          city: `${payload.city}`
+        }
+      })
+      .catch(error => {
+        commit('SET_DISTRICT_DETAIL', null)
+      })
+    if (data) {
+      commit('SET_DISTRICT_DETAIL', data.data)
+    }
   }
 }
 
@@ -66,7 +66,17 @@ export const mutations = {
       state.lists = res
     }
   },
-  SET_DISTRICT(state, data) {
-    state.districts = data
+  SET_DISTRICT(state, payload) {
+    if (payload != null) {
+      state.districts = {
+        data: payload.data,
+        key: payload.key
+      }
+    } else if (payload === null) {
+      state.districts = payload
+    }
+  },
+  SET_DISTRICT_DETAIL(state, data) {
+    state.district_detail = data
   }
 }

@@ -34,7 +34,7 @@
     margin: 0;
     justify-content: center;
     li {
-      padding: 0.6rem 2rem;
+      padding: 0.6rem 1.6rem;
       @media (min-width: 768px) {
         padding: 0.6rem 3rem;
       }

@@ -1,9 +1,9 @@
 <template>
   <section class="container">
     <div class="row">
-      <div class="col-12 text-center">
-        <h1 class="title">Hello {{ slug }}</h1>
-        <img src="~assets/images/fuji.jpg" alt="Fuji" />
+      <div class="col-12">
+        <h1 class="title text-center">Hello {{ slug }}</h1>
+        <img class="image-bg" src="~assets/images/pro.jpg" alt="Fuji" />
       </div>
     </div>
   </section>

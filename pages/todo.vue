@@ -9,7 +9,7 @@
     </div>
     <template v-if="lists != null">
       <div class="row pt-2">
-        <div class="col-3">
+        <div class="col-12 col-md-3">
           <h2 class="text-center mb-4">เลือกจังหวัด</h2>
           <ul class="nav-left">
             <li
@@ -21,7 +21,7 @@
             </li>
           </ul>
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-3">
           <h2 class="text-center mb-4">เลือกอำเภอ</h2>
           <template v-if="districts != null">
             <ol class="select-district">
@@ -48,7 +48,7 @@
             </div>
           </template>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-md-6">
           <h2 class="text-center mb-4">ผลลัพท์</h2>
           <template v-if="district_detail">
             <h4>อำเภอ : {{ district_detail.city }}</h4>

@@ -1,9 +1,10 @@
 <template>
   <div class="container">
     <div class="header">
-      <h1 class="title">
+      <h1 class="title text-center">
         ค่า AQI จาก NuxtJS Framework
       </h1>
+      <img class="image-bg" src="~assets/images/pm.jpg" alt="pm" />
     </div>
   </div>
 </template>
@@ -16,12 +17,7 @@ export default {
 <style lang="scss">
 .header {
   .title {
-    display: block;
-    font-weight: 300;
-    font-size: 100px;
-    letter-spacing: 1px;
-    text-align: center;
-    font-size: 16px;
+    margin-bottom: 3rem;
   }
 }
 </style>

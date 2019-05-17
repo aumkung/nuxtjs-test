@@ -34,9 +34,14 @@
     margin: 0;
     justify-content: center;
     li {
-      padding: 0.6rem 3rem;
+      padding: 0.6rem 2rem;
+      @media (min-width: 768px) {
+        padding: 0.6rem 3rem;
+      }
       a {
         color: #fff;
+        font-weight: 600;
+        letter-spacing: 2px;
       }
     }
   }

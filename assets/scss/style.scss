@@ -11,8 +11,11 @@ body {
     position: relative;
 }
 .blog-wrap {
-    padding-top: 8rem;
+    padding-top: 13rem;
     padding-bottom: 10rem;
+    @media (min-width: 768px) {
+      padding-top: 8rem;
+    }
 }
 .image-bg {
     width: 100%;

@@ -31,32 +31,45 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    // '~/plugins/axios'
+  ],
 
   /*
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt',
     '@nuxtjs/pwa'
   ],
+
+  // server: {
+  //   port: 8080, // default: 3000
+  //   host: '127.0.0.1' // default: localhost
+  // },
   /*
    ** Axios module configuration
    */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: 'https://api.airvisual.com',
+    // baseURL: '',
+    // credentials: false
+    proxy: true,
+    proxyHeaders: false,
     credentials: false
+  },
+
+  proxy: {
+    '/api/': { target: 'https://api.airvisual.com', pathRewrite: {'^/api/': ''} }
   },
 
   generate: {
     routes: [
       '/todo',
       '/user/aum',
-      '/'
+      '/',
+      '/seeme'
     ]
   },
 

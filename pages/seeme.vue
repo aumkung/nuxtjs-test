@@ -18,7 +18,7 @@
               <p class="text-header">View engagement</p>
               <p class="mt-3">view: {{ clip.viewed }}</p>
             </div>
-            <div class="facebook-engage">
+            <!-- <div class="facebook-engage">
               <p class="text-header">Facebook engagement</p>
               <p class="mt-3">comment: {{ clip.engagement.comment_count }}</p>
               <p class="mt-3">
@@ -27,7 +27,7 @@
               </p>
               <p class="mt-3">reaction: {{ clip.engagement.reaction_count }}</p>
               <p class="mt-3">share: {{ clip.engagement.share_count }}</p>
-            </div>
+            </div> -->
           </div>
         </div>
       </template>
@@ -35,25 +35,14 @@
   </div>
 </template>
 <script>
-const token =
-  'EAAaYt5ujUxcBAIg6wbkTYm6tBO46M8k8j5ePc5jCqfYeDF3FsGdFepFSA4YvtwTZCUSGn7VLaKNMIo0ZCbLZB58hVXVEK1RlT0XYlIEwJ5FSRqDaAifYLt9eF6t68wMXKxifdx2nfUZBGOFg01P4cdTZBzR8Rg5DKEZCvNe9cZCDA2ohvhqI6ZA6OsoO44ZCPb40JYMyElstGUAZDZD'
-
+import { mapState } from 'vuex'
 export default {
   layout: 'blog',
-  async asyncData({ params, $axios }) {
-    let { data } = await $axios.get(`https://seeme.me/api/v4/playlists/zJRPKz`)
-    let clips = data.data.clips
-    for (const index in clips) {
-      if (clips.hasOwnProperty(index)) {
-        let f = await $axios.$get(
-          `https://graph.facebook.com/v3.3/?id=${
-            clips[index].streams.mediaid
-          }&fields=engagement&access_token=${token}`
-        )
-        clips[index].engagement = f.engagement
-      }
-    }
-    return { playlists: data.data }
+  computed: {
+    ...mapState('seeme', ['playlists'])
+  },
+  async fetch({ store, params }) {
+    await store.dispatch('seeme/GET_PLAYLIST')
   }
 }
 </script>

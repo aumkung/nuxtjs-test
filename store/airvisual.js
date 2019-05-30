@@ -7,7 +7,7 @@ export const state = () => ({
 export const actions = {
   async getData({ commit }) {
     await this.$axios
-      .$get('/v2/states', {
+      .$get('/api/v2/states', {
         params: {
           key: 'K5CKz6iH2PCPgy98q',
           country: 'Thailand'
@@ -22,7 +22,7 @@ export const actions = {
   },
   async getDistrict({ commit }, key) {
     const data = await this.$axios
-      .$get('/v2/cities', {
+      .$get('/api/v2/cities', {
         params: {
           key: 'K5CKz6iH2PCPgy98q',
           country: 'Thailand',
@@ -41,7 +41,7 @@ export const actions = {
   },
   async districtDetail({ commit }, payload) {
     const data = await this.$axios
-      .$get('/v2/city', {
+      .$get('/api/v2/city', {
         params: {
           key: 'K5CKz6iH2PCPgy98q',
           country: 'Thailand',

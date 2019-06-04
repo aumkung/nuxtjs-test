@@ -18,7 +18,7 @@
               <p class="text-header">View engagement</p>
               <p class="mt-3">view: {{ clip.viewed }}</p>
             </div>
-            <!-- <div class="facebook-engage">
+            <div class="facebook-engage">
               <p class="text-header">Facebook engagement</p>
               <p class="mt-3">comment: {{ clip.engagement.comment_count }}</p>
               <p class="mt-3">
@@ -27,7 +27,7 @@
               </p>
               <p class="mt-3">reaction: {{ clip.engagement.reaction_count }}</p>
               <p class="mt-3">share: {{ clip.engagement.share_count }}</p>
-            </div> -->
+            </div>
           </div>
         </div>
       </template>

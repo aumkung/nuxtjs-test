@@ -55,14 +55,14 @@ export default {
     // See https://github.com/nuxt-community/axios-module#options
     // baseURL: '',
     // credentials: false
-    proxy: true,
+    // proxy: true,
     proxyHeaders: false,
     credentials: false
   },
 
-  proxy: {
-    '/api/': { target: 'https://api.airvisual.com', pathRewrite: {'^/api/': ''} }
-  },
+  // proxy: {
+  //   '/api/': { target: 'https://api.airvisual.com', pathRewrite: {'^/api/': ''} }
+  // },
 
   generate: {
     routes: [

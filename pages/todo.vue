@@ -94,7 +94,7 @@ export default {
   },
   asyncData({ params, $axios }) {
     return $axios
-      .get('/api/v2/states', {
+      .get('https://api.airvisual.com/v2/states', {
         params: {
           key: 'K5CKz6iH2PCPgy98q',
           country: 'Thailand'

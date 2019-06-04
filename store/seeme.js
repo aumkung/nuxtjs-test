@@ -4,10 +4,6 @@ export const state = () => ({
 
 export const actions = {
   async GET_PLAYLIST({ commit }) {
-    // this.$axios.setHeader('Access-Control-Allow-Origin', '*')
-    // this.$axios.setHeader('Access-Control-Allow-Headers', 'Content-Type')
-    // this.$axios.setHeader('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
-    // console.log(this.$axios)
     const { data } = await this.$axios.get(
       `https://seeme.me/api/v4/playlists/Dr1YZE`
     )
@@ -17,7 +13,7 @@ export const actions = {
         let f = await this.$axios.$get(
           `https://graph.facebook.com/v3.3/?id=${
             clips[index].streams.mediaid
-          }&fields=engagement&access_token=EAAaYt5ujUxcBAAoO8jfqtKBzxee5qOju369vjqxPvJ2X8nR9ZB7nDUCr1BT5m66stACHb84oIwu1Meu8RO7Xhxp4freyITsAi0TERAyjVSV51FZAZByTBciZApN7KoVbr1EnySSAqC5LAnEqoZCbJEQgewH0bW2DQ4TlPbSoFsZAaS3PgWjecFrZCXpSAoBq16dEVOjirKy6AZDZD`
+          }&fields=engagement&access_token=EAAaYt5ujUxcBACxxU4NZAouUc0aV5V9zBt5ML1eawf8O4ZCbnuxV6b1pk2MFoG9JSOYUxvG4hRixLgBWFzEuwt5acV721s5cmZCX4dVZCCw56DTBAW6vUxhE5o4DvKhjz6TnKhXZB0IdKb9o6ZAhPfNxXu5ONLAxLc8u1CeH7ydsQ1crebhZBQFquMZBp87ZBIvwZD`
         )
         clips[index].engagement = f.engagement
       }
@@ -28,7 +24,6 @@ export const actions = {
 
 export const mutations = {
   SET_PLAYLIST(state, data) {
-    // console.log(data)
     state.playlists = data
   }
 }
